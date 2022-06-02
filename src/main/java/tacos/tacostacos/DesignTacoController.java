@@ -16,7 +16,7 @@ import tacos.tacostacos.Ingredient.Type;
 @Slf4j
 @Controller
 @RequestMapping("/design")
-@SessionAttributes("tacoOrders")
+@SessionAttributes("tacoOrder")
 public class DesignTacoController {
 
     @ModelAttribute
@@ -35,7 +35,8 @@ public class DesignTacoController {
 
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
-            model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
+            model.addAttribute(type.toString().toLowerCase(),
+                    filterByType(ingredients, type));
         }
     }
 
